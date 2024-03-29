@@ -6,6 +6,24 @@
 trigger:
 - master
 
+parameters:
+  - name: UnitTests
+    displayName: Run Unit Tests
+    type: boolean
+    default: true
+  - name: BaseIntegrationTests
+    displayName: Run Base Integration Tests
+    type: boolean
+    default: false
+  - name: CziIntegrationTests
+    displayName: Run Czi Integration Tests
+    type: boolean
+    default: false
+
+variables:
+  - name: FilterCmd
+    value: "" # execute all, but switch later by something like this: "--filter \"TestCategory=UnitTest\""
+
 pool:
   vmImage: ubuntu-latest
 
